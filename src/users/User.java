@@ -3,7 +3,7 @@ package users;
 public class User {
     public String id;
     public String name;
-    public String userName;
+    public String username;
     public String email;
     public Address address;
     public String phone;
@@ -14,7 +14,7 @@ public class User {
     public User(String id, String name, String userName, String email, Address addressArrayList, String phone, String website, Company company) {
         this.id = id;
         this.name = name;
-        this.userName = userName;
+        this.username = userName;
         this.email = email;
         this.address = addressArrayList;
         this.phone = phone;
@@ -38,12 +38,12 @@ public class User {
         this.name = name;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -91,7 +91,7 @@ public class User {
         return "users.Users{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", userName='" + userName + '\'' +
+                ", userName='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", addressArrayList=" + address +
                 ", phone='" + phone + '\'' +

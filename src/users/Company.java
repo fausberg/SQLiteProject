@@ -4,22 +4,25 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Company {
-    public String companyName;
+    public String name;
     public String catchPhrase;
     public String bs;
 
+    public Company() {
+    }
+
     public Company(String name, String catchPhrase, String bs) {
-        this.companyName = name;
+        this.name = name;
         this.catchPhrase = catchPhrase;
         this.bs = bs;
     }
 
-    public String getCompanyName() {
-        return companyName;
+    public String getName() {
+        return name;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getCatchPhrase() {
@@ -41,7 +44,7 @@ public class Company {
     @Override
     public String toString() {
         return "users.Company{" +
-                "name='" + companyName + '\'' +
+                "name='" + name + '\'' +
                 ", catchPhrase='" + catchPhrase + '\'' +
                 ", bs='" + bs + '\'' +
                 '}';

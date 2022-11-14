@@ -1,6 +1,5 @@
 package comments;
 
-import java.util.ArrayList;
 
 public class Comments {
 
@@ -9,6 +8,8 @@ public class Comments {
     public String name;
     public String email;
     public String body;
+
+    public Comments() {}
 
     public Comments(int postId, int id, String name, String email, String body) {
         this.postId = postId;

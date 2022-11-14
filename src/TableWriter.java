@@ -18,6 +18,7 @@ public class TableWriter {
             statement.execute("""
                 Create table if not exists users(
             	id varchar not null,
+            	name varchar not null,
             	username varchar not null,
             	email varchar not null,
             	street varchar not null,
@@ -28,32 +29,32 @@ public class TableWriter {
             	lng varchar not null,
             	phone varchar not null,
             	website varchar not null,
-            	name varchar not null,
+            	companyname varchar not null,
             	catchPhrase varchar not null,
             	bs varchar not null
                 )
             """);
 
             StringBuilder sb = new StringBuilder();
-            sb.append("INSERT INTO users(id," +
-                    "name," +
-                    " username," +
-                    " email," +
-                    " street," +
-                    " suite," +
-                    " city," +
-                    " zipcode," +
-                    " lat," +
-                    " lng," +
-                    " phone," +
-                    " website," +
-                    " name," +
-                    " catchPhrase," +
+            sb.append("INSERT INTO users(id, " +
+                    "name, " +
+                    " username, " +
+                    " email, " +
+                    " street, " +
+                    " suite, " +
+                    " city, " +
+                    " zipcode, " +
+                    " lat, " +
+                    " lng, " +
+                    " phone, " +
+                    " website, " +
+                    " companyname, " +
+                    " catchPhrase, " +
                     " bs) VALUES");
             for (User user : users) {
                 String id = user.getId();
                 String name = user.getName();
-                String username = user.getUserName();
+                String username = user.getUsername();
                 String email = user.getEmail();
                 String street = user.getAddress().getStreet();
                 String suite = user.getAddress().getSuite();
@@ -63,7 +64,7 @@ public class TableWriter {
                 String lng = user.getAddress().getGeo().getLng();
                 String phone = user.getPhone();
                 String website = user.getWebsite();
-                String companyName = user.getCompany().getCompanyName();
+                String companyName = user.getCompany().getName();
                 String catchPhrase = user.getCompany().getCatchPhrase();
                 String bs = user.getCompany().getBs();
                 sb.append("(")
@@ -94,7 +95,7 @@ public class TableWriter {
                         .append("'")
                         .append(lat)
                         .append("', ")
-                        .append(", ")
+                        .append("'")
                         .append(lng)
                         .append("', ")
                         .append("'")
@@ -116,6 +117,7 @@ public class TableWriter {
             }
             sb.deleteCharAt(sb.length()-1);
             statement.execute(sb.toString());
+            statement.close();
         }
     }
 
@@ -132,11 +134,10 @@ public class TableWriter {
             """);
 
             StringBuilder sb = new StringBuilder();
-            sb.append("INSERT INTO users(id," +
+            sb.append("INSERT INTO posts(id," +
                     " userId," +
                     " title," +
-                    " body," +
-                    " bs) VALUES");
+                    " body) VALUES");
             for (Posts post : posts) {
                 sb.append("(")
                         .append(post.getId())
@@ -152,12 +153,12 @@ public class TableWriter {
                         .append("'")
                         .append(post.getBody())
                         .append("'")
-                        .append(", ")
                         .append(")").append(",");
 
             }
             sb.deleteCharAt(sb.length()-1);
             statement.execute(sb.toString());
+            statement.close();
         }
 
     }
@@ -172,6 +173,24 @@ public class TableWriter {
 	                title VARCHAR NOT NULL
                 )
             """);
+            StringBuilder sb = new StringBuilder();
+            sb.append("INSERT INTO albums(id, userId, title) VALUES");
+            for (Albums album : albums) {
+                sb.append("(")
+                        .append("'")
+                        .append(album.getId())
+                        .append("', ")
+                        .append("'")
+                        .append(album.getUserId())
+                        .append("', ")
+                        .append("'")
+                        .append(album.getTitle())
+                        .append("'")
+                        .append(")").append(",");
+            }
+            sb.deleteCharAt(sb.length()-1);
+            statement.execute(sb.toString());
+            statement.close();
         }
     }
 
@@ -187,6 +206,30 @@ public class TableWriter {
 	                body VARCHAR NOT NULL
                 )
             """);
+            StringBuilder sb = new StringBuilder();
+            sb.append("INSERT INTO comments(id, postId, name, email, body) VALUES");
+            for (Comments comment : comments) {
+                sb.append("(")
+                        .append("'")
+                        .append(comment.getId())
+                        .append("', ")
+                        .append("'")
+                        .append(comment.getPostId())
+                        .append("', ")
+                        .append("'")
+                        .append(comment.getName())
+                        .append("', ")
+                        .append("'")
+                        .append(comment.getEmail())
+                        .append("', ")
+                        .append("'")
+                        .append(comment.getBody())
+                        .append("'")
+                        .append(")").append(",");
+            }
+            sb.deleteCharAt(sb.length()-1);
+            statement.execute(sb.toString());
+            statement.close();
         }
     }
 

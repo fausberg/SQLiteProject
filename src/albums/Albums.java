@@ -8,6 +8,8 @@ public class Albums {
     public int id;
     public String title;
 
+    public Albums() {}
+
     public Albums(int userId, int id, String title) {
         this.userId = userId;
         this.id = id;

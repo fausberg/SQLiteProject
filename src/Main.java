@@ -22,11 +22,23 @@ public class Main {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(users);
         tableWriter.createUsersTable(users);
-        //tableWriter.createPostsTable(posts);
+        tableWriter.createPostsTable(posts);
         tableWriter.createAlbumsTable(albums);
         tableWriter.createCommentsTable(comments);
+
+        //DeletePositionOfTable.deleteAlbumOnId();
+        //DeletePositionOfTable.deleteUserOnId();
+
+        //UpdateTable.updateUser();
+        //UpdateTable.updatePost();
+
+        //CreateNewEntryInTable.postNewEntry();
+
+        //SelectInfo.selectPostsByUserName();
+        //UpdateTable.updateComment();
+        //SelectInfo.selectCommentsByUserName();
+        SelectInfo.selectUsernameById();
 
     }
 

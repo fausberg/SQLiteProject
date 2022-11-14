@@ -13,22 +13,22 @@ import java.util.List;
 public class Parser {
     public static List<User> parseJsonToObjectUsers() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        List<User> users = mapper.readValue(new File("C:\\Program From Git\\project_1\\users.json"), new TypeReference<>() {});
+        List<User> users = mapper.readValue(new File("users.json"), new TypeReference<List<User>>() {});
         return users;
     }
-    public static ArrayList<Comments> parseJsonToObjectComments() throws IOException {
+    public static List<Comments> parseJsonToObjectComments() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        List<Comments> comments = mapper.readValue(new File("C:\\Program From Git\\project_1\\comments.json"), new TypeReference<>() {});
-        return (ArrayList<Comments>) comments;
+        List<Comments> comments = mapper.readValue(new File("C:\\Program From Git\\project_1\\comments.json"), new TypeReference<List<Comments>>() {});
+        return comments;
 
-    }public static ArrayList<Albums> parseJsonToObjectAlbums() throws IOException {
+    }public static List<Albums> parseJsonToObjectAlbums() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        List<Albums> albums = mapper.readValue(new File("C:\\Program From Git\\project_1\\albums.json"), new TypeReference<>() {});
-        return (ArrayList<Albums>) albums;
+        List<Albums> albums = mapper.readValue(new File("C:\\Program From Git\\project_1\\albums.json"), new TypeReference<List<Albums>>() {});
+        return albums;
     }
-    public static ArrayList<Posts> parseJsonToObjectPosts() throws IOException {
+    public static List<Posts> parseJsonToObjectPosts() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        List<Posts> posts = mapper.readValue(new File("C:\\Program From Git\\project_1\\posts.json"), new TypeReference<>() {});
-        return (ArrayList<Posts>) posts;
+        List<Posts> posts = mapper.readValue(new File("posts.json"), new TypeReference<List<Posts>>() {});
+        return posts;
     }
 }

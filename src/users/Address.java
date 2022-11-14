@@ -10,6 +10,9 @@ public class Address {
     public String zipcode;
     public Geo geo;
 
+    public Address() {
+    }
+
     public Address(String street, String suite, String city, String zipcode, Geo geo) {
         this.street = street;
         this.suite = suite;
